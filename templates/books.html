@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理</title>
+</head>
+<body>
+
+<form action="" method="post">
+    {{ form.author_info.label }}{{ form.author_info }}
+    <br>
+
+    {{ form.book_info.label }}{{ form.book_info }}
+    <br>
+    {{ form.submit }}
+</form>
+     <ul>
+    {% for author in authors %}
+
+
+            <li>{{ author.name }}<a href="/delauthor/{{ author.id }}"> 删除 </a></li>
+            <ul>
+
+            {% for book in author.au_book %}
+                <li>{{ book.name }}<a href="/delbook/{{ book.id }}"> 删除 </a></li>
+            {% endfor %}
+
+
+            </ul>
+
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
